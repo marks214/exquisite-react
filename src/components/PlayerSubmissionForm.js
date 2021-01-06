@@ -5,11 +5,11 @@ import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
   const initState = {
-    adj1: '',
+    adjective1: '',
     noun1: '',
     adverb: '',
     verb: '',
-    adj2: '',
+    adjective2: '',
     noun2: ''
   };
 
@@ -28,59 +28,59 @@ const PlayerSubmissionForm = (props) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    props.addPlayerSubmissionCallback(poemLine);
+    props.sendSubmission(poemLine);
 
     setPoemLine(initState);
   }
 
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{props.currentPlayer}</h3>
+      <h3>Player Submission Form for Player #{props.index}</h3>
 
       <form 
       className="PlayerSubmissionForm__form"
-      onSubmit={onFormSubmit} >
+      onSubmit={onFormSubmit}>
 
         <div className="PlayerSubmissionForm__poem-inputs">
 
         <input
-            name='adj1'
-            placeholder="adjective"
-            value={poemLine.adj1}
+            name='adjective1'
+            placeholder="adjective1"
+            value={poemLine.adjective1}
             type="text"
             onChange={onPoemInputChange} />
             
           <input
             name='noun1'
-            placeholder="noun"
+            placeholder="noun1"
             value={poemLine.noun1}
             type="text"
             onChange={onPoemInputChange} />
 
           <input
             name='adverb'
-            placeholder="adverb"
+            placeholder="adverb1"
             value={poemLine.adverb}
             type="text"
             onChange={onPoemInputChange} />
 
           <input
             name='verb'
-            placeholder="verb"
+            placeholder="verb1"
             value={poemLine.verb}
             type="text"
             onChange={onPoemInputChange} />
 
           <input
-            name='adj2'
-            placeholder="adjective"
-            value={poemLine.adj2}
+            name='adjective2'
+            placeholder="adjective2"
+            value={poemLine.adjective2}
             type="text"
             onChange={onPoemInputChange} />
             
           <input
             name='noun2'
-            placeholder="noun"
+            placeholder="noun2"
             value={poemLine.noun2}
             type="text"
             onChange={onPoemInputChange} />
@@ -88,7 +88,10 @@ const PlayerSubmissionForm = (props) => {
         </div>
 
         <div className="PlayerSubmissionForm__submit">
-          <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
+          <input 
+          type="submit" 
+          value="Submit Line" 
+          className="PlayerSubmissionForm__submit-btn" />
         </div>
       </form>
     </div>

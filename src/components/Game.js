@@ -15,6 +15,7 @@ const Game = () => {
 
   const[currentPlayer, setCurrentPlayer] = useState(1);
   const[playerSubmission, setPlayerSubmission] = useState([]);
+  const[completedPoem, setCompletedPoem] = useState(false);
 
   const addPlayerSubmission = (submission) => {
     const poem = [...playerSubmission];
@@ -26,6 +27,10 @@ const Game = () => {
   const mostRecentSubmission = playerSubmission.map((words) => {
     return `The ${words.adj1} ${words.noun1} ${words.adverb} ${words.verb} the ${words.adj2} ${words.noun2} .`
   })
+
+  const displayPoem = () => {
+    setCompletedPoem(true);
+  }
 
   return (
     <div className="Game">
@@ -43,11 +48,13 @@ const Game = () => {
       mostRecentPoemLine={mostRecentSubmission[mostRecentSubmission.length - 1]} />
 
       <PlayerSubmissionForm
-      addPlayerSubmissionCallback={addPlayerSubmission}
-      currentPlayer={currentPlayer}
+      sendSubmission={addPlayerSubmission}
+      index={currentPlayer}
+      fields={FIELDS}
       />
 
-      <FinalPoem />
+      <FinalPoem
+      displayPoem={displayPoem} />
 
     </div>
   );
