@@ -17,11 +17,15 @@ const Game = () => {
   const[playerSubmission, setPlayerSubmission] = useState([]);
 
   const addPlayerSubmission = (submission) => {
-    const poemLine = [...playerSubmission];
-    poemLine.push(submission);
-    setPlayerSubmission(poemLine);
+    const poem = [...playerSubmission];
+    poem.push(submission);
+    setPlayerSubmission(poem);
     setCurrentPlayer(currentPlayer + 1);
   }
+
+  const mostRecentSubmission = playerSubmission.map((words) => {
+    return `The ${words.adj1} ${words.noun1} ${words.adverb} ${words.verb} the ${words.adj2} ${words.noun2} .`
+  })
 
   return (
     <div className="Game">
@@ -35,7 +39,8 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission />
+      <RecentSubmission
+      mostRecentPoemLine={mostRecentSubmission[mostRecentSubmission.length - 1]} />
 
       <PlayerSubmissionForm
       addPlayerSubmissionCallback={addPlayerSubmission}
