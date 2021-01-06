@@ -29,6 +29,8 @@ const PlayerSubmissionForm = (props) => {
     event.preventDefault();
 
     props.addPlayerSubmissionCallback(poemLine);
+
+    setPoemLine(initState);
   }
 
   return (
@@ -44,7 +46,7 @@ const PlayerSubmissionForm = (props) => {
         <input
             name='adj1'
             placeholder="adjective"
-            value={poemLine.adjective1}
+            value={poemLine.adj1}
             type="text"
             onChange={onPoemInputChange} />
             
@@ -72,7 +74,7 @@ const PlayerSubmissionForm = (props) => {
           <input
             name='adj2'
             placeholder="adjective"
-            value={poemLine.adjective2}
+            value={poemLine.adj2}
             type="text"
             onChange={onPoemInputChange} />
             

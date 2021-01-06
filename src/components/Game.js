@@ -44,7 +44,8 @@ const Game = () => {
 
       <PlayerSubmissionForm
       addPlayerSubmissionCallback={addPlayerSubmission}
-      currentPlayer={currentPlayer} />
+      currentPlayer={currentPlayer}
+      />
 
       <FinalPoem />
 
