@@ -43,15 +43,20 @@ const Game = () => {
       <p className="Game__format-example">
         { exampleFormat }
       </p>
-
+    
+    {!isSubmitted && 
       <RecentSubmission
       submission={mostRecentSubmission[mostRecentSubmission.length - 1]} />
-
+    }
+    
+    {!isSubmitted && 
       <PlayerSubmissionForm
       sendSubmission={addPlayerSubmission}
       index={currentPlayer}
-      fields={FIELDS}
-      />
+      fields={FIELDS} /> 
+    }
+
+
 
       <FinalPoem
       isSubmitted={isSubmitted}
