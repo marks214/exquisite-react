@@ -15,7 +15,7 @@ const Game = () => {
 
   const[currentPlayer, setCurrentPlayer] = useState(1);
   const[playerSubmission, setPlayerSubmission] = useState([]);
-  const[completedPoem, setCompletedPoem] = useState(false);
+  const[isSubmitted, setIsSubmitted] = useState(false);
 
   const addPlayerSubmission = (submission) => {
     const poem = [...playerSubmission];
@@ -25,11 +25,11 @@ const Game = () => {
   }
 
   const mostRecentSubmission = playerSubmission.map((words) => {
-    return `The ${words.adj1} ${words.noun1} ${words.adverb} ${words.verb} the ${words.adj2} ${words.noun2} .`
+    return `The ${words.adjective1} ${words.noun1} ${words.adverb} ${words.verb} the ${words.adjective2} ${words.noun2} .`
   })
 
-  const displayPoem = () => {
-    setCompletedPoem(true);
+  const revealPoem = () => {
+    setIsSubmitted(true);
   }
 
   return (
@@ -45,7 +45,7 @@ const Game = () => {
       </p>
 
       <RecentSubmission
-      mostRecentPoemLine={mostRecentSubmission[mostRecentSubmission.length - 1]} />
+      submission={mostRecentSubmission[mostRecentSubmission.length - 1]} />
 
       <PlayerSubmissionForm
       sendSubmission={addPlayerSubmission}
@@ -54,7 +54,9 @@ const Game = () => {
       />
 
       <FinalPoem
-      displayPoem={displayPoem} />
+      isSubmitted={isSubmitted}
+      submissions={playerSubmission}
+      revealPoem={revealPoem} />
 
     </div>
   );
