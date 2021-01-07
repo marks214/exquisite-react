@@ -56,8 +56,6 @@ const Game = () => {
       fields={FIELDS} /> 
     }
 
-
-
       <FinalPoem
       isSubmitted={isSubmitted}
       submissions={playerSubmission}

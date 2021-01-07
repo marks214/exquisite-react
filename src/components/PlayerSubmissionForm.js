@@ -48,42 +48,48 @@ const PlayerSubmissionForm = (props) => {
             placeholder="adjective1"
             value={poemLine.adjective1}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.adjective1 === '' ? 'blankInput' : 'typedInput'} />
             
           <input
             name='noun1'
             placeholder="noun1"
             value={poemLine.noun1}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.noun1 === '' ? 'blankInput' : 'typedInput'}/>
 
           <input
             name='adverb'
             placeholder="adverb1"
             value={poemLine.adverb}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.adverb === '' ? 'blankInput' : 'typedInput'} />
 
           <input
             name='verb'
             placeholder="verb1"
             value={poemLine.verb}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.verb === '' ? 'blankInput' : 'typedInput'} />
 
           <input
             name='adjective2'
             placeholder="adjective2"
             value={poemLine.adjective2}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.adjective2 === '' ? 'blankInput' : 'typedInput'} />
             
           <input
             name='noun2'
             placeholder="noun2"
             value={poemLine.noun2}
             type="text"
-            onChange={onPoemInputChange} />
+            onChange={onPoemInputChange}
+            className={poemLine.noun2 === '' ? 'blankInput' : 'typedInput'} />
 
         </div>
 
