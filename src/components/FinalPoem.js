@@ -4,26 +4,19 @@ import './FinalPoem.css';
 
 const FinalPoem = (props) => {
 
-  const poemSubmissions = props.submissions.map((submission) => {
-    return (
-      <li key={submission}>
-        {submission}
-      </li>
-    )
-  });
-
   const onSubmission = (event) => {
     event.preventDefault();
     props.revealPoem();
   }
 
-  if (props.isSubmitted) { return (
+  if (props.isSubmitted) { 
+    return (
     <div className="FinalPoem">
       <section className="FinalPoem__poem">
         <h3>Final Poem</h3>
-        <ul>
-          {poemSubmissions}
-        </ul>
+          {props.submissions.map((submission, i) => (
+            <p key={i}>The {submission.adj1} {submission.noun1} {submission.adv} {submission.verb} the {submission.adj2} {submission.noun2} .</p>
+            ))}
       </section>
     </div>
   )}
