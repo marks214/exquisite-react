@@ -15,7 +15,7 @@ const FinalPoem = (props) => {
       <section className="FinalPoem__poem">
         <h3>Final Poem</h3>
           {props.submissions.map((submission, i) => (
-            <p key={i}>The {submission.adj1} {submission.noun1} {submission.adv} {submission.verb} the {submission.adj2} {submission.noun2} .</p>
+            <p key={i}>The {submission.adjective1} {submission.noun1} {submission.adverb} {submission.verb} the {submission.adjective2} {submission.noun2} .</p>
             ))}
       </section>
     </div>
